@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Properties;
-using StreamMgmt;
+using StreamManagement;
 
 namespace Network {
 
@@ -73,10 +73,10 @@ namespace Network {
         private static StreamWriter ircWriter;
         private static Server serverInfo;
 
-        public static void loadGlobals(StreamWriter derpWriter, Server derpInfo) {
+        public static void loadGlobals(StreamWriter lineWriter, Server ircInfo) {
 
-            ircWriter = derpWriter;
-            serverInfo = derpInfo;
+            ircWriter = lineWriter;
+            serverInfo = ircInfo;
 
         }
 

@@ -8,16 +8,34 @@ using Properties;
 using Network;
 using Properties;
 
-namespace StreamMgmt {
+namespace StreamManagement {
 
-    class Program {
+    class StreamReceive {
 
-          public static void Main(string[] args) {
+          public static void Initialize(StreamReader lineRead, StreamWriter lineWrite, Server serverInfo) {
 
-              Server connServer = ServerConn.ConnInfo(args);
+		string newLine;
 
-              ServerConn.Connect(connServer);
+		while (true) {
+			
+			while ((newLine = lineReader.ReadLine())) != null) {
+				
+				string[] lineData = newLine.Split(' ');
 
+				// Where input action should be
+				// use lineWriter, serverInfo, and lineData
+			}
+		}
           } 
+    }
+
+    class InputIndex {
+
+	public static void inputReview() {
+
+
+
+	} 
+
     }
 }
