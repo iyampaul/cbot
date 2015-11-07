@@ -14,28 +14,28 @@ namespace StreamManagement {
 
           public static void Initialize(StreamReader lineRead, StreamWriter lineWrite, Server serverInfo) {
 
-		string newLine;
+		          string newLine;
 
-		while (true) {
-			
-			while ((newLine = lineReader.ReadLine())) != null) {
-				
-				string[] lineData = newLine.Split(' ');
+		          while (true) {
 
-				// Where input action should be
-				// use lineWriter, serverInfo, and lineData
-			}
-		}
-          } 
+			            while ((newLine = lineReader.ReadLine())) != null) {
+
+                  string[] lineData = newLine.Split(' ');
+
+                  // Where input action should be
+                  // use lineWriter, serverInfo, and lineData
+                  }
+              }
+          }
     }
 
     class InputIndex {
 
-	public static void inputReview() {
+	     public static void inputReview() {
 
 
 
-	} 
+	    }
 
     }
 }
