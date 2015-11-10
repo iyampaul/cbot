@@ -6,11 +6,11 @@ using System.Net;
 using System.Text;
 using Properties;
 using Network;
-using Properties;
+using UserCommands;
 
 namespace StreamManagement {
 
-    class StreamReceive {
+    class StreamReceiver {
 
           public static void Initialize(StreamReader lineRead, StreamWriter lineWrite, Server serverInfo) {
 
@@ -18,24 +18,44 @@ namespace StreamManagement {
 
 		          while (true) {
 
-			            while ((newLine = lineReader.ReadLine())) != null) {
+			            while ((newLine = lineRead.ReadLine()) != null) {
 
-                  string[] lineData = newLine.Split(' ');
+                    string[] lineData = newLine.Split(' ');
 
-                  // Where input action should be
-                  // use lineWriter, serverInfo, and lineData
+                    DataIndex.Review(lineWrite, serverInfo, lineData);
                   }
               }
           }
     }
 
-    class InputIndex {
+    class DataIndex {
 
-	     public static void inputReview() {
+	    public static void Review(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
 
+        switch (lineData[1]) {
 
+          // ERROR: "You have not registered"
+          case "451":
+            lineWrite.WriteLine("USER {0}", serverInfo.User);
+            lineWrite.Flush();
+            break;
+          // Chat line from user
+          case "PRIVMSG":
+            // Check for user command
+            if (lineData[3][1] == '-') {
+              Triage.Input(lineWrite, serverInfo, lineData);
+            }
+            break;
 
+          // Channel invite
+          // **NOTE: Restrict Later!
+          case "INVITE":
+            Commands.Invite(lineWrite, serverInfo, lineData);
+            break;
+          default:
+            break;
+
+        }
 	    }
-
     }
 }

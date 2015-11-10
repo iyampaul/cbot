@@ -48,9 +48,7 @@ namespace Network {
                   Ping ping = new Ping();
                   ping.Start();
 
-                  // streamManipulation.streamMain(ircReader, ircWriter, serverInfo);
-
-                  Console.WriteLine("I connected!");
+                  StreamReceiver.Initialize(ircReader, ircWriter, serverInfo);
 
                   ircWriter.Close();
                   ircReader.Close();
@@ -82,17 +80,9 @@ namespace Network {
 
         private Thread sendPing;
 
-        public Ping() {
+        public Ping() { sendPing = new Thread(new ThreadStart(Run)); }
 
-            sendPing = new Thread(new ThreadStart(Run));
-
-        }
-
-        public void Start() {
-
-            sendPing.Start();
-
-        }
+        public void Start() { sendPing.Start(); }
 
         public static void Run() {
 
