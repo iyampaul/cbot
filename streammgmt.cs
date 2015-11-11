@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using Properties;
 using Network;
-using UserCommands;
+using UserControl;
 
 namespace StreamManagement {
 

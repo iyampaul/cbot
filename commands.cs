@@ -9,7 +9,7 @@ using Network;
 using StreamManagement;
 using AuditRecord;
 
-namespace UserCommands {
+namespace UserControl {
 
     class Triage {
 
@@ -17,11 +17,10 @@ namespace UserCommands {
 
         Log.Print(lineData);
 
-        switch (lineData[3]) {
+        switch (lineData[3].ToLower()) {
 
-          case ":-Test":
-            Console.WriteLine("Do I get here?");
-            Commands.WriteStream(lineWrite, serverInfo, "You caught me!");
+          case ":-test":
+            Commands.WriteStream(lineWrite, serverInfo, "Ploop");
             break;
 
           default:
