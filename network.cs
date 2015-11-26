@@ -16,13 +16,13 @@ namespace Network {
 
           public static Server ConnInfo(string[] blargs) {
 
-              string[] args = { "irc.freenode.net", "6667", "p4ilbot", "#phar1testing" };
+              string[] args = { "irc.freenode.net", "6667", "p4ilbot" };
 
               Server serverInfo = new Server();
               serverInfo.Hostname = args[0];
               serverInfo.Port = int.Parse(args[1]);
               serverInfo.Nickname = args[2];
-              serverInfo.Channel = args[3];
+              //serverInfo.Channel = args[3];
               serverInfo.User = serverInfo.Nickname + " " + serverInfo.Nickname + "  nullboat :Purple";
 
               return serverInfo;
