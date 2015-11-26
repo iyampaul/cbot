@@ -32,7 +32,7 @@ namespace UserControl {
 
     class Commands {
 
-      public static void Invite(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
+      public static void JoinChan(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
 
         lineWrite.WriteLine("JOIN {0}", lineData[3]);
         lineWrite.Flush();

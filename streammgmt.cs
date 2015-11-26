@@ -14,9 +14,9 @@ namespace StreamManagement {
 
           public static void Initialize(StreamReader lineRead, StreamWriter lineWrite, Server serverInfo) {
 
-		          string newLine;
+              string newLine;
 
-		          while (true) {
+              while (true) {
 
 			            while ((newLine = lineRead.ReadLine()) != null) {
 
@@ -50,7 +50,7 @@ namespace StreamManagement {
           // Channel invite
           // **NOTE: Restrict Later!
           case "INVITE":
-            Commands.Invite(lineWrite, serverInfo, lineData);
+            Commands.JoinChan(lineWrite, serverInfo, lineData);
             break;
           default:
             break;
