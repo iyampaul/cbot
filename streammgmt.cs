@@ -42,11 +42,13 @@ namespace StreamManagement {
           // Chat line from user
           case "PRIVMSG":
             // Check for user command
+            if (lineData[3].Length == 1) {
+              break;
+            }
             if (lineData[3][1] == '-') {
               Triage.Input(lineWrite, serverInfo, lineData);
             }
             break;
-
           // Channel invite
           // **NOTE: Restrict Later!
           case "INVITE":
@@ -54,7 +56,6 @@ namespace StreamManagement {
             break;
           default:
             break;
-
         }
 	    }
     }

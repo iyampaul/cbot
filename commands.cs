@@ -19,16 +19,11 @@ namespace UserControl {
         Log.Print(lineData);
 
         switch (lineData[3].ToLower()) {
-
-          case ":-test":
-            Commands.WriteStream(lineWrite, serverInfo, "Ploop");
-            break;
           case ":-dice":
             Dice.Roll(lineWrite, serverInfo, lineData[4]);
             break;
           default:
             break;
-
         }
       }
     }
