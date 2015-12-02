@@ -8,6 +8,7 @@ Feel free to contribute, rip, comment, or provide feedback.  Feedback is always 
 
 Addons should be declared in commands.cs and added to the Input() switch.
 
+Core variables when creating addons:
 ```bash
 $ LineWrite = Used to write to datastream
 $ serverInfo = server data (hostname, port, nickname, channel)
