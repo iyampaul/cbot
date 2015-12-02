@@ -18,45 +18,45 @@ namespace StreamManagement {
 
               while (true) {
 
-			            while ((newLine = lineRead.ReadLine()) != null) {
+			while ((newLine = lineRead.ReadLine()) != null) {
 
-                    string[] lineData = newLine.Split(' ');
+                    		string[] lineData = newLine.Split(' ');
 
-                    DataIndex.Review(lineWrite, serverInfo, lineData);
-                  }
+                    		DataIndex.Review(lineWrite, serverInfo, lineData);
+                  	}
               }
           }
     }
 
     class DataIndex {
 
-	    public static void Review(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
+	public static void Review(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
 
-        switch (lineData[1]) {
-
-          // ERROR: "You have not registered"
-          case "451":
-            lineWrite.WriteLine("USER {0}", serverInfo.User);
-            lineWrite.Flush();
-            break;
-          // Chat line from user
-          case "PRIVMSG":
-            // Check for user command
-            if (lineData[3].Length == 1) {
-              break;
-            }
-            if (lineData[3][1] == '-') {
-              Triage.Input(lineWrite, serverInfo, lineData);
-            }
-            break;
-          // Channel invite
-          // **NOTE: Restrict Later!
-          case "INVITE":
-            Commands.JoinChan(lineWrite, serverInfo, lineData);
-            break;
-          default:
-            break;
-        }
-	    }
+        	switch (lineData[1]) {
+	
+	          	// ERROR: "You have not registered"
+        		case "451":
+            			lineWrite.WriteLine("USER {0}", serverInfo.User);
+            			lineWrite.Flush();
+            			break;
+          		// Chat line from user
+          		case "PRIVMSG":
+            		// Check for user command
+            			if (lineData[3].Length == 1) {
+              				break;
+            			}
+            			if (lineData[3][1] == '-') {
+              				Triage.Input(lineWrite, serverInfo, lineData);
+            			}
+            			break;
+          		// Channel invite
+          		// **NOTE: Restrict Later!
+          		case "INVITE":
+            			Commands.JoinChan(lineWrite, serverInfo, lineData);
+            			break;
+          		default:
+            			break;
+        	}
+	}
     }
 }
