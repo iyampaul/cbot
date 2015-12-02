@@ -4,7 +4,7 @@ cbot is basic IRC bot written in C#.  Net code (connection, ping thread, stream 
 
 Feel free to contribute, rip, comment, or provide feedback.  Feedback is always welcome and appreciated.
 
--- Adding Commands:
+# Adding Commands:
 
 Addons should be declared in commands.cs and added to the Input() switch.
 
