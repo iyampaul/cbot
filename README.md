@@ -12,5 +12,6 @@ Core variables when creating addons:
 ```bash
 $ LineWrite = Used to write to datastream
 $ serverInfo = server data (hostname, port, nickname, channel)
-$ lineData[] = raw string array, format: nickname!username@hostname <RAW CODE> <#channel/nickname> :<chat message>
+$ lineData[] = raw IRC string array
 ```
+
