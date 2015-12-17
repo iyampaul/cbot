@@ -9,6 +9,7 @@ using Network;
 using StreamManagement;
 using AuditRecord;
 using DiceBot;
+using WeatherBot;
 
 namespace UserControl {
 
@@ -21,6 +22,9 @@ namespace UserControl {
         switch (lineData[3].ToLower()) {
           case ":-dice":
             Dice.Roll(lineWrite, serverInfo, lineData[4]);
+            break;
+          case ":-weather":
+            Weather.Initialize(lineWrite, serverInfo);
             break;
           default:
             break;
