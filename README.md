@@ -10,7 +10,7 @@ Addons should be declared in commands.cs and added to the Input() switch.
 
 Core variables when creating addons:
 ```bash
-$ LineWrite = Used to write to datastream
+$ lineWrite = Used to write to datastream
 $ serverInfo = server data (hostname, port, nickname, channel)
 $ lineData[] = raw IRC string array
 ```
