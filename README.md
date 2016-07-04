@@ -1,6 +1,6 @@
 # CBOT
 
-`CBOT` is basic IRC bot written in C#.  Net code (connection, ping thread, stream setup) was graciously used from public locations around the internets.
+`CBOT` is a basic IRC bot in C#.  Net code (connection, ping thread, stream setup) was graciously used from public locations around the internet.
 
 Feel free to contribute, rip, comment, or provide feedback.  Feedback is always welcome and appreciated.
 
