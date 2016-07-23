@@ -57,7 +57,7 @@ namespace DiceBot {
 
       private static bool InputValidation(string diceData) {
 
-        Regex sanityCheck = new Regex("^[dD0-9]*$");
+        Regex sanityCheck = new Regex("^[1-9][0-9]*[dD][1-9][0-9]*$");
 
         if (sanityCheck.IsMatch(diceData) & (diceData.Length < 10)) {
           return true;

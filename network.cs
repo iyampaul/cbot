@@ -16,7 +16,7 @@ namespace Network {
 
           public static Server ConnInfo(string[] blargs) {
 
-              string[] args = { "irc.freenode.net", "6667", "p4ilbot" };
+              string[] args = { "irc.servercentral.net", "6667", "scapboat" };
 
               Server serverInfo = new Server();
               serverInfo.Hostname = args[0];
