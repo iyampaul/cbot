@@ -14,9 +14,7 @@ namespace Network {
 
     class ServerConn {
 
-          public static Server ConnInfo(string[] blargs) {
-
-              string[] args = { "irc.servercentral.net", "6667", "scapboat" };
+          public static Server ConnInfo(string[] args) {
 
               Server serverInfo = new Server();
               serverInfo.Hostname = args[0];
