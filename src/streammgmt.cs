@@ -49,7 +49,8 @@ namespace StreamManagement {
           // Channel invite
           // **NOTE: Restrict Later!
           case "INVITE":
-            Commands.JoinChan(lineWrite, serverInfo, lineData);
+            serverInfo.Channel = lineData[3].Substring(1,lineData[3].Length - 1);
+            Commands.JoinChan(lineWrite, serverInfo);
             break;
           default:
             break;

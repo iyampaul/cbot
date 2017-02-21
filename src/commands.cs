@@ -34,10 +34,9 @@ namespace UserControl {
 
     class Commands {
 
-      public static void JoinChan(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
+      public static void JoinChan(StreamWriter lineWrite, Server serverInfo) {
 
-        serverInfo.Channel = lineData[3].Substring(1,lineData[3].Length - 1);
-        lineWrite.WriteLine("JOIN {0}", lineData[3]);
+        lineWrite.WriteLine("JOIN {0}", serverInfo.Channel);
         lineWrite.Flush();
 
       }
