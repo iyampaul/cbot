@@ -27,4 +27,36 @@ namespace Properties {
 
     }
 
+    class Admin {
+
+        public string Key { get; set; }
+        public string[] Users { get; set; }
+
+    }
+
+    class UserInformation {
+
+        public static string GetNick(string lineData) {
+
+            string buildNick = "";
+
+            char[] nickArray = lineData.ToCharArray();
+
+            for (int i = 0; i < nickArray.Length; i++) {
+
+                if (nickArray[i] == '!') {
+
+                    int nickLimiter = i;
+                    string nickResult = "";
+
+                    for (int j = 1; j < nickLimiter; j++) {
+                        buildNick = buildNick + nickArray[j];
+                    }
+                }
+            }
+
+            return buildNick;
+        }
+    }
+
 }
