@@ -15,7 +15,7 @@ namespace UserControl {
 
     class Triage {
 
-      public static void Input(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
+      public static void Input(StreamWriter lineWrite, Server serverInfo, string[] lineData, Admin authProps) {
 
         Log.Print(lineData);
 
