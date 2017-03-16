@@ -71,7 +71,7 @@ namespace Authentication {
         public static bool CheckList(string requestUser, Admin authProps) {
             bool validUser = false;
 
-            return valudUser;
+            return validUser;
         }
     }
 }
