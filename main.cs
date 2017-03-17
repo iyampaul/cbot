@@ -13,9 +13,25 @@ namespace main {
 
           public static void Main(string[] args) {
 
-              Server connServer = ServerConn.ConnInfo(args);
+              if (args.Length == 0) {
 
-              ServerConn.Connect(connServer);
+                  Help();
+                  System.Environment.Exit(1);
+
+              }
+              else {
+
+                  Server connServer = ServerConn.ConnInfo(args);
+
+                  ServerConn.Connect(connServer);
+              }
+
+          }
+
+          public static void Help() {
+
+              Console.WriteLine("Input: <filename> <server> <port> <nickname>");
+              Console.WriteLine("Example: main.exe irc.freenode.net 6667 imabotlol");
 
           }
     }
