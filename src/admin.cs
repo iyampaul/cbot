@@ -58,14 +58,21 @@ namespace Authentication {
 
         public static void Auth(StreamWriter lineWrite, Server serverInfo, string[] lineData, Admin authProps) {
 
-            // In Progress!
+            if (CheckKey(lineData[4], authProps)){
+
+                Commands.WriteStream(lineWrite, serverInfo, "Authenticated");
+
+            }
 
         }
 
         public static bool CheckKey(string inputKey, Admin authProps) {
-            bool validKey = false;
 
-            return validKey;
+            if (inputKey == authProps.Key) {
+                return true;
+            }
+            else { return false; }
+
         }
 
         public static bool CheckList(string requestUser, Admin authProps) {
