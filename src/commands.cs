@@ -10,6 +10,7 @@ using StreamManagement;
 using AuditRecord;
 using DiceBot;
 using WeatherBot;
+using Authentication;
 
 namespace UserControl {
 
@@ -25,6 +26,9 @@ namespace UserControl {
             break;
           case ":-weather":
             Weather.Initialize(lineWrite, serverInfo);
+            break;
+          case ":-auth":
+            Validation.Auth(lineWrite, serverInfo, lineData, authProps);
             break;
           default:
             break;
