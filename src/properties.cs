@@ -37,7 +37,7 @@ namespace Properties {
     class UserInformation {
 
         public static string GetNick(string lineData) {
-
+            // Send in lineData[0] for handling inbound requests
             string buildNick = "";
 
             char[] nickArray = lineData.ToCharArray();
