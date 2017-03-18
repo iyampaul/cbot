@@ -30,7 +30,7 @@ namespace Properties {
     class Admin {
 
         public string Key { get; set; }
-        public string[] Users { get; set; }
+        public List<string> Users { get; set; }
 
     }
 
