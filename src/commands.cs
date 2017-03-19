@@ -20,18 +20,20 @@ namespace UserControl {
 
         Log.Print(lineData);
 
-        switch (lineData[3].ToLower()) {
-          case ":-dice":
-            Dice.Roll(lineWrite, serverInfo, lineData[4]);
-            break;
-          case ":-weather":
-            Weather.Initialize(lineWrite, serverInfo);
-            break;
-          case ":-auth":
-            Validation.Auth(lineWrite, serverInfo, lineData, authProps);
-            break;
-          default:
-            break;
+        
+        if (Validation.Auth(lineData, authProps)) {
+
+          switch (lineData[3].ToLower()) {
+            case ":-dice":
+              Dice.Roll(lineWrite, serverInfo, lineData[4]);
+              break;
+            case ":-weather":
+              Weather.Initialize(lineWrite, serverInfo);
+              break;
+            default:
+              break;
+              
+          }
         }
       }
     }
