@@ -20,7 +20,7 @@ namespace UserControl {
 
         Log.Print(lineData);
 
-        
+
         if (Validation.Auth(lineData, authProps)) {
 
           switch (lineData[3].ToLower()) {
@@ -31,9 +31,11 @@ namespace UserControl {
               Weather.Initialize(lineWrite, serverInfo);
               break;
             default:
-              break;
-              
+              break;      
           }
+        }
+        else {
+          Commands.WriteStream(lineWrite, serverInfo, "Access Denied");
         }
       }
     }
