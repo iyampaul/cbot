@@ -20,9 +20,10 @@ namespace Authentication {
 
             char[] tokenArray = new char[tokenSize];
 
-            for (int i = 0; i < tokenSize; i++)
-            {
+            for (int i = 0; i < tokenSize; i++){
+
                 tokenArray[i] = TokenAlphabet[totesRandom.Next(TokenAlphabet.Length)];
+
             }
 
             return new string(tokenArray);
@@ -56,17 +57,41 @@ namespace Authentication {
 
     class Validation {
 
-        public static void Auth(StreamWriter lineWrite, Server serverInfo, string[] lineData, Admin authProps) {
+        public static bool Auth(string[] lineData, Admin authProps) {
 
-            if (CheckKey(lineData[4], authProps)){
+            /*
+            Purpose: Authorize the requestor; If the user is not in the list, check if the command is '-auth' and the key is accurate.  If it is accurate, add user to the list and validate.
+            1. Check if the user is on the list, if yes return true, if no
+            2. Check if the command was -auth and if so check if the key is accurate.
+            3. If the key is accurate, add the user to the list.
+            4. If the key is inaccurate, return rejection.     
+            */
 
-                Commands.WriteStream(lineWrite, serverInfo, "Authenticated");
+            if ((authProps.Users.Count == 0) && (lineData[3].ToLower() == ':-auth')) {
+                // Initialize Auth
+
+                if (CheckKey(lineData[4], authProps)) { 
+                    // Add user to authProps.Users 
+
+                    AddUser(UserInformation.GetNick(lineData[0]), authProps);
+                    return true; 
+
+                }
+                // Fails initial auth
+                else { return false; }
 
             }
+            else {
+                // Temporary!
+                return false;
+            }
+
+
+            return true;
 
         }
 
-        public static bool CheckKey(string inputKey, Admin authProps) {
+        private static bool CheckKey(string inputKey, Admin authProps) {
 
             if (inputKey == authProps.Key) {
                 return true;
@@ -75,10 +100,32 @@ namespace Authentication {
 
         }
 
-        public static bool CheckList(string requestUser, Admin authProps) {
-            bool validUser = false;
+        private static bool CheckList(string requestUser, Admin authProps) {
 
-            return validUser;
+            if (authProps.Users.Count == 0) { 
+
+                return false;
+
+            }
+            else {
+
+                foreach (string user in authProps.Users) {
+
+                    if (user == requestUser) { return true; }
+
+                }
+
+            }
+
+            // If all else fails, it's false.
+            return false;
+
+        }
+
+        private static void AddUser(string requestUser, Admin authProps) {
+
+            authProps.Users.Add(requestUser);
+
         }
     }
 }
