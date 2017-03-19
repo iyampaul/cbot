@@ -58,6 +58,7 @@ namespace Network {
                   Console.WriteLine(e.ToString());
                   Console.WriteLine("Hit the anykey to quit.");
                   Console.ReadLine();
+                  System.Environment.Exit(1);
 
               }
 
