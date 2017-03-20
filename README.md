@@ -1,17 +1,14 @@
 # CBOT
 
-`CBOT` is a basic IRC bot in C#.  Net code (connection, ping thread, stream setup) was graciously used from public locations around the internet.
+`CBOT` is a basic IRC bot written in C#.  
 
-Feel free to contribute, rip, comment, or provide feedback.  Feedback is always welcome and appreciated.
+Feel free to contribute, rip, comment, whatever. 
 
-`CBOT` is being developed using Mono in Linux. 
-
-# Building
+# Compiling
 
 I keep a basic bash script to simplify the build process:
 
-`dmcs main.cs src/*.cs addons/*.cs`
-
+`mcs main.cs src/*.cs addons/*.cs`
 
 # Launching
 
@@ -21,7 +18,7 @@ The `CBOT` binary is expecting 3 input arguments: server, port, nickname. Exampl
 
 # Authentication/Authorization
 
-There's a basic authentication system build into `CBOT`. The auth key is printed to the console and (at the moment) only changes when the bot is loaded.
+There's a basic authentication system build into `CBOT`. The auth key is printed to console and (at the moment) only changes when the bot is loaded.
 
 To authenticate with the bot, messages it using "-auth key-hash" to have your nickname added to the authorization list.  This will unlock the other commands.
 
