@@ -40,6 +40,7 @@ namespace Authentication {
 
             Admin Authenticator = new Admin();
             Authenticator.Key = Tokens.GenToken();
+            Authenticator.Users = new List<string>();
 
             OutputKey(Authenticator.Key);
 
@@ -59,15 +60,7 @@ namespace Authentication {
 
         public static bool Auth(string[] lineData, Admin authProps) {
 
-            /*
-            Purpose: Authorize the requestor; If the user is not in the list, check if the command is '-auth' and the key is accurate.  If it is accurate, add user to the list and validate.
-            1. Check if the user is on the list, if yes return true, if no
-            2. Check if the command was -auth and if so check if the key is accurate.
-            3. If the key is accurate, add the user to the list.
-            4. If the key is inaccurate, return rejection.     
-            */
-
-            if ((authProps.Users.Count == 0) && (lineData[3].ToLower() == ':-auth')) {
+            if (lineData[3].ToLower() == ":-auth") {
                 // Initialize Auth
 
                 if (CheckKey(lineData[4], authProps)) { 
@@ -82,12 +75,19 @@ namespace Authentication {
 
             }
             else {
-                // Temporary!
+                // Anything but auth requests
+                if (authProps.Users.Count == 0) { 
+
+                    return false;
+
+                }
+                else if (CheckList(UserInformation.GetNick(lineData[0]), authProps)) {
+                    
+                    return true;
+
+                }
                 return false;
             }
-
-
-            return true;
 
         }
 
