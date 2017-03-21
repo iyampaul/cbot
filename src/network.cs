@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Properties;
 using StreamManagement;
+using AuditRecord;
 
 namespace Network {
 
@@ -45,6 +46,8 @@ namespace Network {
 
                   Ping ping = new Ping();
                   ping.Start();
+
+                  Log.Connection(serverInfo);
 
                   StreamReceiver.Initialize(ircReader, ircWriter, serverInfo);
 
