@@ -30,6 +30,9 @@ namespace UserControl {
             case ":-weather":
               Weather.Initialize(lineWrite, serverInfo);
               break;
+            case ":-quit":
+              System.Environment.Exit(1);
+              break;
             default:
               break;      
           }
