@@ -17,13 +17,15 @@ namespace DiceBot {
       private int Multiplier { get; set; }
       private int Type { get; set; }
 
-      public static void Roll(StreamWriter lineWrite, Server serverInfo, string diceInput) {
+      public static void Roll(StreamWriter lineWrite, Server serverInfo, string[] lineData) {
 
           Dice DiceData = new Dice();
 
+          string diceInput = lineData[4];
+
           InitializeDice(diceInput, DiceData);
 
-          OutputRoll(lineWrite, serverInfo, CalcRoll(DiceData));
+          OutputRoll(lineWrite, lineData, serverInfo, CalcRoll(DiceData));
       }
 
       private static void InitializeDice(string diceInput, Dice DiceData) {
@@ -78,8 +80,8 @@ namespace DiceBot {
         return diceResult;
       }
 
-      private static void OutputRoll(StreamWriter lineWrite, Server serverInfo, int rollResult) {
-        Commands.WriteStream(lineWrite, serverInfo, "Roll: " + rollResult);
+      private static void OutputRoll(StreamWriter lineWrite, string[] lineData, Server serverInfo, int rollResult) {
+        Commands.WriteStream(lineWrite, lineData, serverInfo, "Roll: " + rollResult);
       }
     }
 }

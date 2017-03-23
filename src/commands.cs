@@ -25,10 +25,10 @@ namespace UserControl {
 
           switch (lineData[3].ToLower()) {
             case ":-dice":
-              Dice.Roll(lineWrite, serverInfo, lineData[4]);
+              Dice.Roll(lineWrite, serverInfo, lineData);
               break;
             case ":-weather":
-              Weather.Initialize(lineWrite, serverInfo);
+              Weather.Initialize(lineWrite, serverInfo, lineData);
               break;
             case ":-quit":
               System.Environment.Exit(1);
@@ -38,7 +38,7 @@ namespace UserControl {
           }
         }
         else {
-          Commands.WriteStream(lineWrite, serverInfo, "Access Denied");
+          Commands.WriteStream(lineWrite, lineData, serverInfo, "Access Denied");
         }
       }
     }
@@ -52,9 +52,16 @@ namespace UserControl {
 
       }
 
-      public static void WriteStream(StreamWriter lineWrite, Server serverInfo, string outputData) {
+      public static void WriteStream(StreamWriter lineWrite, string[] lineData, Server serverInfo, string outputData) {
 
-        lineWrite.WriteLine("PRIVMSG {0} :{1}", serverInfo.Channel, outputData);
+        string writeLoc = "";
+
+        if (lineData[2] == serverInfo.Nickname) {
+          writeLoc = UserInformation.GetNick(lineData[0]);
+        } 
+        else { writeLoc = serverInfo.Channel; }
+
+        lineWrite.WriteLine("PRIVMSG {0} :{1}", writeLoc, outputData);
         lineWrite.Flush();
 
       }
