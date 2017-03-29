@@ -8,6 +8,7 @@ using Properties;
 using Network;
 using UserControl;
 using AuditRecord;
+using Administration;
 
 namespace Authentication {
 
@@ -66,7 +67,7 @@ namespace Authentication {
                 if (CheckKey(lineData[4], authProps)) { 
                     // Add user to authProps.Users 
 
-                    AddUser(UserInformation.GetNick(lineData[0]), authProps);
+                    AdminList.AddUser(UserInformation.GetNick(lineData[0]), authProps);
                     return true; 
 
                 }
@@ -122,10 +123,5 @@ namespace Authentication {
 
         }
 
-        private static void AddUser(string requestUser, Admin authProps) {
-
-            authProps.Users.Add(requestUser);
-
-        }
     }
 }
