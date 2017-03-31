@@ -20,6 +20,24 @@ namespace Administration {
 
         }
 
+        public static void RemUser(string requestUser, Admin authProps) {
+
+            authProps.Users.Remove(requestUsers);
+
+        }
+
+        public static void ListUser(StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
+
+            Commands.WriteStream(lineWrite, lineData, serverInfo, "Authorized Users:");
+
+            foreach (string user in authProps) {
+                
+                Commands.WriteStream(lineWrite, lineData, serverInfo, user);
+
+            }
+
+        }
+
     }
 
 }
