@@ -11,6 +11,7 @@ using AuditRecord;
 using DiceBot;
 using WeatherBot;
 using Authentication;
+using Administration;
 
 namespace UserControl {
 

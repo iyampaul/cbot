@@ -22,7 +22,7 @@ namespace Administration {
 
         public static void RemUser(string requestUser, Admin authProps) {
 
-            authProps.Users.Remove(requestUsers);
+            authProps.Users.Remove(requestUser);
 
         }
 
@@ -30,7 +30,7 @@ namespace Administration {
 
             Commands.WriteStream(lineWrite, lineData, serverInfo, "Authorized Users:");
 
-            foreach (string user in authProps) {
+            foreach (string user in authProps.Users) {
                 
                 Commands.WriteStream(lineWrite, lineData, serverInfo, user);
 
