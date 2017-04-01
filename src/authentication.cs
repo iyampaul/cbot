@@ -124,4 +124,23 @@ namespace Authentication {
         }
 
     }
+
+    class KeyAdmin {
+
+        public static void PrintKey (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
+
+            string Key = "Auth Key: " + authProps.Key;
+            
+            Commands.WriteStream(lineWrite, lineData, serverInfo, Key);
+
+        }
+
+        public static void ResetKey (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
+
+            authProps.Key = Tokens.GenToken();
+            
+            PrintKey(lineWrite, lineData, serverInfo, authProps); 
+        }
+
+    }
 }

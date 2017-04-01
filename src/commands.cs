@@ -35,15 +35,7 @@ namespace UserControl {
               System.Environment.Exit(1);
               break;
             case ":-admin":
-              if (lineData[4].ToLower() == "list") {
-                AdminList.ListUser(lineWrite, lineData, serverInfo, authProps);
-              }
-              if (lineData[4].ToLower() == "add") {
-                AdminList.AddUser(lineData[5], authProps);
-              }
-              if (lineData[4].ToLower() == "remove") {
-                AdminList.RemUser(lineData[5], authProps);
-              }
+              BotAdmin.Triage(lineWrite, lineData, serverInfo, authProps);
               break;
             default:
               break;      

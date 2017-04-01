@@ -40,4 +40,54 @@ namespace Administration {
 
     }
 
+    class BotAdmin {
+
+        public static void Triage (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) { 
+
+            switch(lineData[4].ToLower()) {
+                case "auth":
+                    switch(lineData[5].ToLower()) {
+                        case "list":
+                            AdminList.ListUser(lineWrite, lineData, serverInfo, authProps);
+                            break;
+                        case "add":
+                            AdminList.AddUser(lineData[6], authProps);
+                            break;
+                        case "remove":
+                            AdminList.RemUser(lineData[6], authProps);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case "key":
+                    switch(lineData[5].ToLower()) {
+                        case "show":
+                            KeyAdmin.PrintKey(lineWrite, lineData, serverInfo, authProps);
+                            break;
+                        case "reset":
+                            KeyAdmin.ResetKey(lineWrite, lineData, serverInfo, authProps);
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        
+        
+        public static void KeyReset (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
+
+            authProps.Key = Tokens.GenToken();
+            string keyResponse = "New Key: " + authProps.Key;
+
+            Commands.WriteStream(lineWrite, lineData, serverInfo, keyResponse);
+
+        }
+
+    }
+
 }
