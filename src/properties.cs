@@ -21,7 +21,7 @@ namespace Properties {
     class Channel {
 
         public string Name { get; set; }
-        public string[] Users { get; set; }
+        public List<string> Users { get; set; }
         public string Topic { get; set; }
         public string Modes { get; set; }
 
@@ -37,7 +37,7 @@ namespace Properties {
     class UserInformation {
 
         public static string GetNick(string lineData) {
-            // Send in lineData[0] for handling inbound requests
+
             string buildNick = "";
 
             char[] nickArray = lineData.ToCharArray();
