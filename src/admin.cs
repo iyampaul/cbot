@@ -77,17 +77,6 @@ namespace Administration {
             }
 
         }
-        
-        
-        public static void KeyReset (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
-
-            authProps.Key = Tokens.GenToken();
-            string keyResponse = "New Key: " + authProps.Key;
-
-            Commands.WriteStream(lineWrite, lineData, serverInfo, keyResponse);
-
-        }
-
     }
 
 }
