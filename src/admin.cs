@@ -72,6 +72,14 @@ namespace Administration {
                             break;
                     }
                     break;
+                case "chan":
+                    switch(lineData[5].ToLower()) {
+                        case "join":
+                            Commands.JoinChan(lineWrite, serverInfo);
+                            break;
+                        default:
+                            break;
+                    }
                 default:
                     break;
             }
