@@ -18,7 +18,7 @@ namespace UserControl {
     class Triage {
 
       public static void Input(StreamWriter lineWrite, Server serverInfo, string[] lineData, Admin authProps) {
-        // This needs to move around channel properties
+
         Log.Print(lineData);
 
 
@@ -50,15 +50,8 @@ namespace UserControl {
     class Commands {
 
       public static void JoinChan(StreamWriter lineWrite, Server serverInfo) {
-        // Create the channel property - Call the channel property channelname sans #.
         lineWrite.WriteLine("JOIN {0}", serverInfo.Channel);
         lineWrite.Flush();
-
-      }
-
-      public static void PartChan(StreamWriter lineWrite, Server serverInfo) {
-        // This is completely broken and dependent on refactor of Channel storage.
-        lineWrite.WriteLine("PART {0}", )
       }
 
       public static void NickChange(StreamWriter lineWrite, Server serverInfo, string newNick) {
@@ -66,7 +59,7 @@ namespace UserControl {
       }
 
       public static void WriteStream(StreamWriter lineWrite, string[] lineData, Server serverInfo, string outputData) {
-        // Needs channel property
+
         string writeLoc = "";
 
         if (lineData[2] == serverInfo.Nickname) {

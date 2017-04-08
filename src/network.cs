@@ -21,7 +21,7 @@ namespace Network {
               serverInfo.Hostname = args[0];
               serverInfo.Port = int.Parse(args[1]);
               serverInfo.Nickname = args[2];
-              //serverInfo.Channel = args[3];
+
               serverInfo.User = serverInfo.Nickname + " " + serverInfo.Nickname + "  nullboat :Purple";
 
               return serverInfo;

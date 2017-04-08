@@ -15,15 +15,11 @@ namespace Administration {
     class AdminList { 
 
         public static void AddUser(string requestUser, Admin authProps) {
-
             authProps.Users.Add(requestUser);
-
         }
 
         public static void RemUser(string requestUser, Admin authProps) {
-
             authProps.Users.Remove(requestUser);
-
         }
 
         public static void ListUser(StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {
