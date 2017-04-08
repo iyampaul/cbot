@@ -80,6 +80,14 @@ namespace Administration {
                         default:
                             break;
                     }
+                case "bot":
+                    switch(lineData[5].ToLower()) {
+                        case "nick":
+                            Commands.NickChange(lineWrite, serverInfo, lineData[6]);
+                            break;
+                        default:
+                            break;
+                    }
                 default:
                     break;
             }

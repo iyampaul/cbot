@@ -57,9 +57,12 @@ namespace UserControl {
       }
 
       public static void PartChan(StreamWriter lineWrite, Server serverInfo) {
-        
+        // This is completely broken and dependent on refactor of Channel storage.
         lineWrite.WriteLine("PART {0}", )
+      }
 
+      public static void NickChange(StreamWriter lineWrite, Server serverInfo, string newNick) {
+        lineWrite.WriteLine("NICK {0}", newNick);
       }
 
       public static void WriteStream(StreamWriter lineWrite, string[] lineData, Server serverInfo, string outputData) {
