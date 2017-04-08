@@ -76,6 +76,7 @@ namespace Administration {
                         default:
                             break;
                     }
+                    break;
                 case "bot":
                     switch(lineData[5].ToLower()) {
                         case "nick":
@@ -84,6 +85,7 @@ namespace Administration {
                         default:
                             break;
                     }
+                    break;
                 default:
                     break;
             }
