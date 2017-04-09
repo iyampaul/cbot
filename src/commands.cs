@@ -21,7 +21,6 @@ namespace UserControl {
 
         Log.Print(lineData);
 
-
         if (Validation.Auth(lineData, authProps)) {
 
           switch (lineData[3].ToLower()) {
@@ -50,7 +49,9 @@ namespace UserControl {
     class Commands {
 
       public static void JoinChan(StreamWriter lineWrite, Server serverInfo) {
+
         lineWrite.WriteLine("JOIN {0}", serverInfo.Channel);
+
         lineWrite.Flush();
       }
 
@@ -69,7 +70,6 @@ namespace UserControl {
 
         lineWrite.WriteLine("PRIVMSG {0} :{1}", writeLoc, outputData);
         lineWrite.Flush();
-
       }
     }
 }

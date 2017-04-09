@@ -11,9 +11,7 @@ namespace AuditRecord {
     class Log {
 
       public static void Print(string[] lineData) {
-
         PrintConsole(lineData);
-
       }
 
       public static void Connection(Server serverInfo) {
@@ -25,11 +23,12 @@ namespace AuditRecord {
 
       private static void PrintConsole(string[] lineData) {
 
-        Console.WriteLine("{0} {1} {2} {3}", DateTime.Now, lineData[1], lineData[0], lineData[3]);
+        if (String.IsNullOrEmpty(lineData[4])) {
+            lineData[4] = "";
+        }
 
+        Console.WriteLine("{0} {1} {2} {3}", DateTime.Now, lineData[1], lineData[0], lineData[3], lineData[4]);
       }
-
-      private static void PrintFile(string[] lineData) { } // Futureproofing!
 
     }
 

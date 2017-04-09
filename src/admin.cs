@@ -26,10 +26,8 @@ namespace Administration {
 
             Commands.WriteStream(lineWrite, lineData, serverInfo, "Authorized Users:");
 
-            foreach (string user in authProps.Users) {
-                
+            foreach (string user in authProps.Users) { 
                 Commands.WriteStream(lineWrite, lineData, serverInfo, user);
-
             }
 
         }

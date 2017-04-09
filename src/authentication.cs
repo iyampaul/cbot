@@ -50,9 +50,7 @@ namespace Authentication {
         }
 
         private static void OutputKey(string authKey) {
-
             Console.WriteLine("Auth Key: {0}", authKey);
-
         }
 
     }
@@ -78,14 +76,10 @@ namespace Authentication {
             else {
                 // Anything but auth requests
                 if (authProps.Users.Count == 0) { 
-
                     return false;
-
                 }
-                else if (CheckList(UserInformation.GetNick(lineData[0]), authProps)) {
-                    
+                else if (CheckList(UserInformation.GetNick(lineData[0]), authProps)) {            
                     return true;
-
                 }
                 return false;
             }
@@ -104,23 +98,16 @@ namespace Authentication {
         private static bool CheckList(string requestUser, Admin authProps) {
 
             if (authProps.Users.Count == 0) { 
-
                 return false;
-
             }
             else {
 
                 foreach (string user in authProps.Users) {
-
                     if (user == requestUser) { return true; }
-
                 }
-
             }
 
-            // If all else fails, it's false.
             return false;
-
         }
 
     }
@@ -132,7 +119,6 @@ namespace Authentication {
             string Key = "Auth Key: " + authProps.Key;
             
             Commands.WriteStream(lineWrite, lineData, serverInfo, Key);
-
         }
 
         public static void ResetKey (StreamWriter lineWrite, string[] lineData, Server serverInfo, Admin authProps) {

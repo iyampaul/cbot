@@ -18,15 +18,6 @@ namespace Properties {
 
     }
 
-    class Channel {
-
-        public string Name { get; set; }
-        public List<string> Users { get; set; }
-        public string Topic { get; set; }
-        public string Modes { get; set; }
-
-    }
-
     class Admin {
 
         public string Key { get; set; }
