@@ -38,7 +38,6 @@ namespace Properties {
                 if (nickArray[i] == '!') {
 
                     int nickLimiter = i;
-                    string nickResult = "";
 
                     for (int j = 1; j < nickLimiter; j++) {
                         buildNick = buildNick + nickArray[j];
