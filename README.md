@@ -18,9 +18,9 @@ The `CBOT` binary is expecting 3 input arguments: server, port, nickname. Exampl
 
 # Authentication/Authorization
 
-There's a basic authentication system build into `CBOT`. The auth key is printed to console and (at the moment) only changes when the bot is loaded.
+There's a basic authentication system build into `CBOT`. The auth key is printed to console and can be changed with a `key reset` command.
 
-To authenticate with the bot, messages it using "-auth key-hash" to have your nickname added to the authorization list.  This will unlock the other commands.
+To authenticate with the bot, messages it using `-auth key-hash` to have your nickname added to the authorization list.  This will unlock the other commands.
 
 For the moment you must re-authenticate each time the bot is loaded.  There is no object permanence. 
 
